@@ -13,6 +13,8 @@
     <h2>Most Recent Data:</h2>
     <p>Temperature: @_prediction.Temperature</p>
     <p>Vorticity: @_prediction.Vorticity</p>
+    <p>Data last updated: @_lastUpdated</p>
+    <button @onclick="Update">Update Now</button>
 }
 else
 {
@@ -23,11 +25,16 @@ else
 @code {
     [Inject] PredictionService? PredictionService { get; set; }
     LnnOutput? _prediction;
+    DateTime _lastUpdated;
     
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
+    {
+        await Update();
+    }
+
+    private async Task Update()
     {
         _prediction = await PredictionService!.GetPrediction();
-        Console.WriteLine(_prediction.Temperature);
-        StateHasChanged();
+        _lastUpdated = DateTime.Now;
     }
 }
