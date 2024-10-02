@@ -1,4 +1,5 @@
 using lnn_ui.Components;
+using lnn_ui.Services;
 
 namespace lnn_ui
 {
@@ -12,6 +13,10 @@ namespace lnn_ui
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
 
+            builder.Services.AddHttpClient();
+            
+            builder.Services.AddSingleton<PredictionService>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

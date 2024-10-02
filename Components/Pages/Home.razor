@@ -1,7 +1,33 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+@using lnn_ui.Models
+@using lnn_ui.Services
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Cyclone Detector</h1>
 
-Welcome to your new app.
+@if (_prediction is {Temperature: not null})
+{
+    <h2>Current chance of a cyclone is @_prediction.Prediction%</h2>
+    <h2>Most Recent Data:</h2>
+    <p>Temperature: @_prediction.Temperature</p>
+    <p>Vorticity: @_prediction.Vorticity</p>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+
+@code {
+    [Inject] PredictionService? PredictionService { get; set; }
+    LnnOutput? _prediction;
+    
+    protected override async void OnInitialized()
+    {
+        _prediction = await PredictionService!.GetPrediction();
+        Console.WriteLine(_prediction.Temperature);
+        StateHasChanged();
+    }
+}
