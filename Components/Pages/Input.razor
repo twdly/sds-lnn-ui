@@ -1,0 +1,26 @@
+@page "/input"
+@using lnn_ui.Services
+@rendermode InteractiveServer
+<h2>Input</h2>
+<label>Temperature: </label>
+<input @bind="_temp"/>
+<br/>
+<label>Vorticity: </label>
+<input @bind="_vorticity"/>
+<button @onclick="SendInput">Send Input</button>
+@if (_response != string.Empty)
+{
+    <p>Response was: @_response</p>
+}
+
+@code {
+    int _temp;
+    int _vorticity;
+    string _response = "";
+    [Inject] DataInputService? _inputService { get; set; }
+
+    private async void SendInput()
+    {
+        _response = await _inputService.SendInput(_temp, _vorticity);
+    }
+}

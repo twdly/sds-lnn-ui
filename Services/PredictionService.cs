@@ -10,6 +10,6 @@ public class PredictionService(HttpClient client)
     {
         var response = client.GetAsync("http://localhost:5000/");
         var result = await response;
-        return JsonSerializer.Deserialize<LnnOutput>(await result.Content.ReadAsStringAsync());
+        return JsonSerializer.Deserialize<LnnOutput>(await result.Content.ReadAsStringAsync()) ?? new LnnOutput();
     }
 }
