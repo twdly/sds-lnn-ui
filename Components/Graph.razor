@@ -1,0 +1,18 @@
+@using lnn_ui.Models
+@using ApexCharts
+<h3>Graph</h3>
+
+<ApexChart Title="Weather Data" TItem="LnnOutput" type="line">
+    
+</ApexChart>
+
+@code {
+    [Parameter] public List<LnnOutput> GraphInput { get; set; } = [];
+    // private List<>
+
+    protected override Task OnParametersSetAsync()
+    {
+        return base.OnParametersSetAsync();
+    }
+
+}

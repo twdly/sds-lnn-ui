@@ -15,8 +15,9 @@ namespace lnn_ui
 
             builder.Services.AddHttpClient();
             
-            builder.Services.AddSingleton<PredictionService>();
-            builder.Services.AddSingleton<DataInputService>();
+            builder.Services.AddScoped<PredictionService>();
+            builder.Services.AddScoped<DataInputService>();
+            builder.Services.AddScoped<HistoryService>();
             
             var app = builder.Build();
 
