@@ -7,7 +7,7 @@
 
 <h1>Cyclone Detector</h1>
 
-@if (_prediction is {Temperature: not null})
+@if (_prediction is {Temperature: not 0})
 {
     <h2>Current chance of a cyclone is @_prediction.Prediction%</h2>
     <h2>Most Recent Data:</h2>

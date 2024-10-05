@@ -17,10 +17,10 @@
     int _temp;
     int _vorticity;
     string _response = "";
-    [Inject] DataInputService? _inputService { get; set; }
+    [Inject] DataInputService? InputService { get; set; }
 
     private async void SendInput()
     {
-        _response = await _inputService.SendInput(_temp, _vorticity);
+        _response = await InputService!.SendInput(_temp, _vorticity);
     }
 }
