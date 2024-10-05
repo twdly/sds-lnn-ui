@@ -8,7 +8,7 @@ partial class Graphs
 {
     [Inject] private HistoryService _historyService { get; set; }
     private int _count;
-    private bool _dataButtonClicked = false;
+    private bool _dataButtonClicked;
     private List<LnnOutput> _data = [];
 
     private async void GetData()
