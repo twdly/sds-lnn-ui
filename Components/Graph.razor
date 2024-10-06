@@ -1,6 +1,6 @@
 @using lnn_ui.Models
 @using ApexCharts
-<div style="max-width: 500px">
+<div style="max-width: 1000px">
     <ApexChart Title="Weather Data" TItem="LnnOutput">
         <ApexPointSeries TItem="LnnOutput"
                          Items="GraphInput"
@@ -8,6 +8,20 @@
                          Name="Prediction"
                          XValue="output => output.Index"
                          YValue="output => (decimal?)output.Prediction"/>
+        
+        <ApexPointSeries TItem="LnnOutput"
+                         Items="GraphInput"
+                         SeriesType="SeriesType.Line"
+                         Name="Temperature"
+                         XValue="output => output.Index"
+                         YValue="output => (decimal?)output.Temperature"/>
+        
+        <ApexPointSeries TItem="LnnOutput"
+                         Items="GraphInput"
+                         SeriesType="SeriesType.Line"
+                         Name="Vorticity"
+                         XValue="output => output.Index"
+                         YValue="output => (decimal?)output.Vorticity"/>
     </ApexChart>
 </div>
 
