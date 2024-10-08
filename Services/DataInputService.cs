@@ -10,7 +10,7 @@ public class DataInputService(HttpClient client)
             { "vorticity", vorticity.ToString() }
         };
         var content = new FormUrlEncodedContent(values);
-        var response = await client.PostAsync("http://localhost:5000/set", content);
+        var response = await client.PostAsync("http://127.0.0.1:5000/set", content);
         return response.StatusCode.ToString();
     }
 }
