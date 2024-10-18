@@ -7,21 +7,21 @@
                          SeriesType="SeriesType.Line"
                          Name="Prediction"
                          XValue="output => output.Index"
-                         YValue="output => (decimal?)output.Prediction"/>
+                         YValue="output => (decimal?)output.Nature"/>
         
         <ApexPointSeries TItem="LnnOutput"
                          Items="GraphInput"
                          SeriesType="SeriesType.Line"
                          Name="Temperature"
                          XValue="output => output.Index"
-                         YValue="output => (decimal?)output.Temperature"/>
+                         YValue="output => (decimal?)output.Intensity"/>
         
         <ApexPointSeries TItem="LnnOutput"
                          Items="GraphInput"
                          SeriesType="SeriesType.Line"
                          Name="Vorticity"
                          XValue="output => output.Index"
-                         YValue="output => (decimal?)output.Vorticity"/>
+                         YValue="output => (decimal?)output.Gust"/>
     </ApexChart>
 </div>
 

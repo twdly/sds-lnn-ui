@@ -7,12 +7,14 @@
 
 <h1>Cyclone Detector</h1>
 
-@if (_prediction is {Temperature: not 0})
+@if (_prediction is {Nature: not 0})
 {
-    <h2>Current chance of a cyclone is @_prediction.Prediction%</h2>
+    <h2>Current predictions</h2>
+    <p>Nature:  @_prediction.Nature</p>
+    <p>Intensity:  @_prediction.Intensity</p>
     <h2>Most Recent Data:</h2>
-    <p>Temperature: @_prediction.Temperature</p>
-    <p>Vorticity: @_prediction.Vorticity</p>
+    <p>Gust: @_prediction.Gust</p>
+    <p>Eye: @_prediction.Eye</p>
     <p>Data last updated: @_lastUpdated</p>
     <button @onclick="Update">Update Now</button>
 }

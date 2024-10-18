@@ -2,11 +2,36 @@
 @using lnn_ui.Services
 @rendermode InteractiveServer
 <h2>Input</h2>
-<label>Temperature: </label>
-<input @bind="_temp"/>
+<label>Month: </label>
+<input @bind="_month"/>
 <br/>
-<label>Vorticity: </label>
-<input @bind="_vorticity"/>
+<label>Day: </label>
+<input @bind="_day"/>
+<br/>
+<label>Hour: </label>
+<input @bind="_hour"/>
+<br/>
+<label>Latitude: </label>
+<input @bind="_lat"/>
+<br/>
+<label>Longitude: </label>
+<input @bind="_lon"/>
+<br/>
+<label>Wind: </label>
+<input @bind="_wind"/>
+<br/>
+<label>Pressure: </label>
+<input @bind="_pres"/>
+<br/>
+<label>Gust: </label>
+<input @bind="_gust"/>
+<br/>
+<label>Eye: </label>
+<input @bind="_eye"/>
+<br/>
+<label>Speed: </label>
+<input @bind="_speed"/>
+<br/>
 <button @onclick="SendInput">Send Input</button>
 @if (_response != string.Empty)
 {
@@ -14,13 +39,21 @@
 }
 
 @code {
-    int _temp;
-    int _vorticity;
+    float _month;
+    float _day;
+    float _hour;
+    float _lat;
+    float _lon;
+    float _wind;
+    float _pres;
+    float _gust;
+    float _eye;
+    float _speed;
     string _response = "";
     [Inject] DataInputService? InputService { get; set; }
 
     private async void SendInput()
     {
-        _response = await InputService!.SendInput(_temp, _vorticity);
+        _response = await InputService!.SendInput(_month, _day, _hour, _lat, _lon, _wind, _pres, _gust, _eye, _speed);
     }
 }
