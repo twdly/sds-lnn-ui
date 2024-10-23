@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace lnn_ui.Services;
 
-public class DataInputService(HttpClient client)
+public class DataInputService(HttpClient client, IConfiguration config)
 {
     public async Task<string> SendInput(float month, float day, float hour, float lat, float lon, float wind, float pres, float gust, float eye, float speed)
     {
@@ -20,7 +20,8 @@ public class DataInputService(HttpClient client)
             { "speed", speed.ToString(CultureInfo.CurrentCulture) }
         };
         var content = new FormUrlEncodedContent(values);
-        var response = await client.PostAsync("http://127.0.0.1:5000/set", content);
+        var apiUrl = config.GetConnectionString("ApiUrl");
+        var response = await client.PostAsync($"{apiUrl}/set", content);
         return response.StatusCode.ToString();
     }
 }
