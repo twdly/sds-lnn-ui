@@ -16,7 +16,7 @@
                 <div class="data-grid">
                     <div class="data-card">
                         <span class="data-label">Nature</span>
-                        <span class="data-value">@_prediction.Nature</span>
+                        <span class="data-value">@GetNatureClassification(_prediction.Nature)</span>
                     </div>
                     <div class="data-card">
                         <span class="data-label">Intensity</span>
@@ -72,5 +72,18 @@
     {
         _prediction = await PredictionService!.GetPrediction();
         _lastUpdated = DateTime.Now;
+    }
+
+        private string GetNatureClassification(double natureValue)
+    {
+
+        double adjustedValue = natureValue * 100;
+
+        string formattedValue = adjustedValue.ToString("F2");
+
+        if (natureValue >= 0 && natureValue < 64) return "TD";
+        if (natureValue >= 64 && natureValue < 120) return "TS"; 
+        if (natureValue >= 120) return "Cyclone";
+        return $"{formattedValue} (Unknown)";
     }
 }
