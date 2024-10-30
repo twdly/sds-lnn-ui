@@ -20,7 +20,7 @@
                     </div>
                     <div class="data-card">
                         <span class="data-label">Intensity</span>
-                        <span class="data-value">@_prediction.Intensity</span>
+                        <span class="data-value">@IntensityClassification(_prediction.Intensity)</span>
                     </div>
                 </div>
             </div>
@@ -85,5 +85,12 @@
         if (natureValue >= 64 && natureValue < 120) return "TS"; 
         if (natureValue >= 120) return "Cyclone";
         return $"{formattedValue} (Unknown)";
+    }
+
+        private string IntensityClassification(double intensity)
+    {
+        double adjustedValue = intensity * 100;
+        string formattedValue = adjustedValue.ToString("F2");
+        return formattedValue;
     }
 }
