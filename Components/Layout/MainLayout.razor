@@ -1,14 +1,34 @@
 ﻿@inherits LayoutComponentBase
+@* @page "/" *@
 
 <div class="page">
-
-    <main>
-        <div class="top-row">
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/graphs">Graphs</NavLink>
-            <NavLink href="/input">Input</NavLink>
+    <nav class="sidebar">
+        <div class="header">
+        <span class="website-title">Cyclone Detector</span>
+    </div>
+        <div class="nav-menu">
+            <NavLink class="nav-item" href="/" Match="NavLinkMatch.All">
+                <div class="nav-content">
+                    <i class="bi bi-house"></i>
+                    <span class="nav-text">Home</span>
+                </div>
+            </NavLink>
+            <NavLink class="nav-item" href="/graphs">
+                <div class="nav-content">
+                    <i class="bi bi-bar-chart"></i>
+                    <span class="nav-text">Graphs</span>
+                </div>
+            </NavLink>
+            <NavLink class="nav-item" href="/input">
+                <div class="nav-content">
+                    <i class="bi bi-keyboard"></i>
+                    <span class="nav-text">Input</span>
+                </div>
+            </NavLink>
         </div>
+    </nav>
 
+    <main class="main-content">
         <article class="content px-4">
             @Body
         </article>

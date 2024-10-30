@@ -6,7 +6,7 @@ namespace lnn_ui.Components.Pages;
 
 partial class Graphs
 {
-    [Inject] private HistoryService _historyService { get; set; }
+    [Inject] private HistoryService? _historyService { get; set; }
     private int _count;
     private bool _dataButtonClicked;
     private List<LnnOutput> _data = [];

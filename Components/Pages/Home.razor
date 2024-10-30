@@ -5,23 +5,57 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Cyclone Detector</h1>
+<div class="container">
+    <h1 class="main-title">Cyclone Detector</h1>
 
-@if (_prediction is {Nature: not 0})
-{
-    <h2>Current predictions</h2>
-    <p>Nature:  @_prediction.Nature</p>
-    <p>Intensity:  @_prediction.Intensity</p>
-    <h2>Most Recent Data:</h2>
-    <p>Gust: @_prediction.Gust</p>
-    <p>Eye: @_prediction.Eye</p>
-    <p>Data last updated: @_lastUpdated</p>
-    <button @onclick="Update">Update Now</button>
-}
-else
-{
-    <p>Prediction data could not be loaded</p>
-}
+    @if (_prediction is { Nature: not 0 })
+    {
+        <div class="prediction-container">
+            <div class="prediction-section">
+                <h2 class="section-title">Current Predictions</h2>
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="data-label">Nature</span>
+                        <span class="data-value">@_prediction.Nature</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="data-label">Intensity</span>
+                        <span class="data-value">@_prediction.Intensity</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prediction-section">
+                <h2 class="section-title">Most Recent Data</h2>
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="data-label">Gust</span>
+                        <span class="data-value">@_prediction.Gust km/h</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="data-label">Eye</span>
+                        <span class="data-value">@_prediction.Eye km</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="update-section">
+                <p class="update-time">Data last updated: @_lastUpdated.ToString("f")</p>
+                <button class="update-button" @onclick="Update">Update Now</button>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="error-message">
+            <svg xmlns="http://www.w3.org/2000/svg" class="error-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+            </svg>
+            <p>Prediction data could not be loaded</p>
+        </div>
+    }
+</div>
+
 
 
 @code {
