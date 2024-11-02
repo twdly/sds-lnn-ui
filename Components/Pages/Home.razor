@@ -14,13 +14,13 @@
             <div class="prediction-section">
                 <h2 class="section-title">Current Predictions</h2>
                 <div class="data-grid">
-                    <div class="data-card">
+                    <div class="data-card @GetNatureClass()">
                         <span class="data-label">Nature</span>
-                        <span class="data-value">@GetNatureClassification(_prediction.Nature)</span>
+                        <span class="data-value">@GetNatureDisplay()</span>
                     </div>
                     <div class="data-card">
                         <span class="data-label">Intensity</span>
-                        <span class="data-value">@IntensityClassification(_prediction.Intensity)</span>
+                        <span class="data-value">@_prediction.Intensity</span>
                     </div>
                 </div>
             </div>
@@ -74,23 +74,33 @@
         _lastUpdated = DateTime.Now;
     }
 
-        private string GetNatureClassification(double natureValue)
+    private string GetNatureDisplay()
     {
-
-        double adjustedValue = natureValue * 100;
-
-        string formattedValue = adjustedValue.ToString("F2");
-
-        if (natureValue >= 0 && natureValue < 64) return "TD";
-        if (natureValue >= 64 && natureValue < 120) return "TS"; 
-        if (natureValue >= 120) return "Cyclone";
-        return $"{formattedValue} (Unknown)";
+        return Math.Round(_prediction.Nature, 1) switch
+        {
+            >= 0 and < 0.5 => "Disturbance",
+            >= 0.5 and < 0.9 => "Transitioning Depression",
+            >= 1 and < 1.5 => "Depression",
+            >= 1.5 and < 1.9 => "Transitioning Storm",
+            >= 2 and < 2.5 => "Storm",
+            >= 2.5 and < 2.9 => "Transitioning Cyclone",
+            >= 3 => "Cyclone",
+            _ => "Something went wrong"
+        };
     }
 
-        private string IntensityClassification(double intensity)
+    private string GetNatureClass()
     {
-        double adjustedValue = intensity * 100;
-        string formattedValue = adjustedValue.ToString("F2");
-        return formattedValue;
+        return Math.Round(_prediction.Nature, 1) switch
+        {
+            >= 0 and < 0.5 => "dist",
+            >= 0.5 and < 0.9 => "td",
+            >= 1 and < 1.5 => "depr",
+            >= 1.5 and < 1.9 => "ts",
+            >= 2 and < 2.5 => "s",
+            >= 2.5 and < 2.9 => "tc",
+            >= 3 => "c",
+            _ => "Something went wrong"
+        };
     }
 }

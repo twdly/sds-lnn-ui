@@ -39,12 +39,51 @@
 
 .data-card {
     background-color: #f8fafc;
+    background-image: linear-gradient(130deg, rgb(212, 225, 248) 0%, #c1c1d8 70%);
     border-radius: 8px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
+
+/* Data-Card CSS changing based on nature classification */
+/* Transitioning Depression */
+.data-card.td {
+    background-image: linear-gradient(130deg, #ffd966 0%, #3a0647 100%);
+    color: #4a2e6e;
+}
+
+/* Depression */
+.data-card.depr {
+    background-image: linear-gradient(130deg, #ff9999 0%, #3a0647 100%);
+    color: #6d1e32;
+}
+
+/* Transitioning Storm */
+.data-card.ts {
+    background-image: linear-gradient(130deg, #99ccff 0%, #3a0647 100%);
+    color: #1a3c5d;
+}
+
+/* Storm */
+.data-card.s {
+    background-image: linear-gradient(130deg, #66ffb3 0%, #3a0647 100%);
+    color: #265942;
+}
+
+/* Transitioning Cyclone */
+.data-card.tc {
+    background-image: linear-gradient(130deg, #99b3ff 0%, #3a0647 100%);
+    color: #2c3f6e;
+}
+
+/* Cyclone */
+.data-card.c {
+    background-image: linear-gradient(130deg, #80e27e 0%, #3a0647 100%);
+    color: #1f4f24;
+}
+
 
 .data-label {
     color: #64748b;
