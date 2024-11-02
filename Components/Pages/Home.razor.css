@@ -87,15 +87,25 @@
 
 .data-label {
     color: #64748b;
-    font-size: 0.875rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
+.data-output {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .data-value {
     color: #1e293b;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
+}
+
+.transition {
+    display: flex;
+    align-items: start;
 }
 
 .update-section {

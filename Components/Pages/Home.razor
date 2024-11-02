@@ -20,7 +20,7 @@
                     </div>
                     <div class="data-card">
                         <span class="data-label">Intensity</span>
-                        <span class="data-value">@_prediction.Intensity</span>
+                        <span class="data-value">@roundIntensity()%</span>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,10 @@
                 <h2 class="section-title">Most Recent Data</h2>
                 <div class="data-grid">
                     <div class="data-card">
-                        <span class="data-label">Gust</span>
+                        <div class="data-output">
+                            <span class="data-label">Gust</span>
+                            <i class="bi bi-wind data-label"></i>
+                        </div>
                         <span class="data-value">@_prediction.Gust km/h</span>
                     </div>
                     <div class="data-card">
@@ -74,20 +77,37 @@
         _lastUpdated = DateTime.Now;
     }
 
-    private string GetNatureDisplay()
+    private RenderFragment GetNatureDisplay() => builder =>
     {
-        return Math.Round(_prediction.Nature, 1) switch
+        string displayText = Math.Round(_prediction.Nature, 1) switch
         {
             >= 0 and < 0.5 => "Disturbance",
-            >= 0.5 and < 0.9 => "Transitioning Depression",
+            >= 0.5 and < 0.9 => "Depression",
             >= 1 and < 1.5 => "Depression",
-            >= 1.5 and < 1.9 => "Transitioning Storm",
+            >= 1.5 and < 1.9 => "Storm",
             >= 2 and < 2.5 => "Storm",
-            >= 2.5 and < 2.9 => "Transitioning Cyclone",
+            >= 2.5 and < 2.9 => "Cyclone",
             >= 3 => "Cyclone",
             _ => "Something went wrong"
         };
+
+        builder.AddContent(0, displayText);
+
+        if (Math.Round(_prediction.Nature, 1) % 1 != 0)
+        {
+            builder.OpenElement(1, "i");
+            builder.AddAttribute(2, "class", "bi bi-arrow-up transition");
+            builder.CloseElement();
+        }
+    };
+
+    private double roundIntensity() 
+    {
+        return Math.Round(_prediction.Intensity * 10, 0);
     }
+
+
+
 
     private string GetNatureClass()
     {
