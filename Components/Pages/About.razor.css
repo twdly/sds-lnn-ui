@@ -37,9 +37,3 @@ p {
     width: 50px;
     margin-bottom: 10px;
 }
-
-.line {
-    width: 100%;
-    height: 2px;
-    background-color: black;
-}
