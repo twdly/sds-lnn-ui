@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.label {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.count-card {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-box {
+    flex: 1;
+    height: 2.6em;
+    width: 200px;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.data-button {
+    height: 2.6em;
+    padding: 1 1.2em;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.data-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.graph-container {
+    width: 100%;
+    /* max-width: 600px; */
+    margin-top: 1em;
+}
+
+.error-message {
+    color: red;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 1em;
+}
