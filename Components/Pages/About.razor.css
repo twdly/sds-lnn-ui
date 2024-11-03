@@ -1,0 +1,12 @@
+.main-title {
+    color: #1a365d;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.classification-table {
+    width: 50%;
+    border: 1px solid;
+}
