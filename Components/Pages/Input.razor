@@ -1,42 +1,73 @@
 @page "/input"
 @using lnn_ui.Services
 @rendermode InteractiveServer
-<h2>Input</h2>
-<label>Month: </label>
-<input @bind="_month"/>
-<br/>
-<label>Day: </label>
-<input @bind="_day"/>
-<br/>
-<label>Hour: </label>
-<input @bind="_hour"/>
-<br/>
-<label>Latitude: </label>
-<input @bind="_lat"/>
-<br/>
-<label>Longitude: </label>
-<input @bind="_lon"/>
-<br/>
-<label>Wind: </label>
-<input @bind="_wind"/>
-<br/>
-<label>Pressure: </label>
-<input @bind="_pres"/>
-<br/>
-<label>Gust: </label>
-<input @bind="_gust"/>
-<br/>
-<label>Eye: </label>
-<input @bind="_eye"/>
-<br/>
-<label>Speed: </label>
-<input @bind="_speed"/>
-<br/>
-<button @onclick="SendInput">Send Input</button>
-@if (_response != string.Empty)
-{
-    <p>Response was: @_response</p>
-}
+
+<div class="container">
+    <h1>Cyclone Detector Input</h1>
+
+    <div class="card">
+        <form>
+            <div class="form-group">
+                <label>Month:</label>
+                <input @bind="_month" type="number" placeholder="Enter month" />
+            </div>
+
+            <div class="form-group">
+                <label>Day:</label>
+                <input @bind="_day" type="number" placeholder="Enter day" />
+            </div>
+
+            <div class="form-group">
+                <label>Hour:</label>
+                <input @bind="_hour" type="number" placeholder="Enter hour" />
+            </div>
+
+            <div class="form-group">
+                <label>Latitude:</label>
+                <input @bind="_lat" type="number" placeholder="Enter latitude" />
+            </div>
+
+            <div class="form-group">
+                <label>Longitude:</label>
+                <input @bind="_lon" type="number" placeholder="Enter longitude" />
+            </div>
+
+            <div class="form-group">
+                <label>Wind:</label>
+                <input @bind="_wind" type="number" placeholder="Enter wind speed" />
+            </div>
+
+            <div class="form-group">
+                <label>Pressure:</label>
+                <input @bind="_pres" type="number" placeholder="Enter pressure" />
+            </div>
+
+            <div class="form-group">
+                <label>Gust:</label>
+                <input @bind="_gust" type="number" placeholder="Enter gust speed" />
+            </div>
+
+            <div class="form-group">
+                <label>Eye:</label>
+                <input @bind="_eye" type="number" placeholder="Enter eye distance" />
+            </div>
+
+            <div class="form-group">
+                <label>Speed:</label>
+                <input @bind="_speed" type="number" placeholder="Enter speed" />
+            </div>
+
+            <button type="button" @onclick="SendInput">Submit Data</button>
+
+            @if (!string.IsNullOrEmpty(_response))
+            {
+                <div class="response">
+                    <p>Response was: @_response</p>
+                </div>
+            }
+        </form>
+    </div>
+</div>
 
 @code {
     float _month;
@@ -50,6 +81,7 @@
     float _eye;
     float _speed;
     string _response = "";
+
     [Inject] DataInputService? InputService { get; set; }
 
     private async void SendInput()

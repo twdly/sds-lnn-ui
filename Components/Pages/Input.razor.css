@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #4CAF50;
+    --button-color: #007bff;
+    --button-text-color: white;
+    --button-hover-color: #0056b3;
+    --input-border-color: #ccc;
+    --font-color: #333;
+    --card-background: #ffffff;
+    --background-color: #f8f9fa;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--font-color);
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--font-color);
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Same blue color */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Smooth rounded corners */
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500; /* Slightly bold for clarity */
+    transition: background-color 0.3s, transform 0.1s; /* Smooth hover effect */
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+
+.response {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: var(--font-color);
+}
