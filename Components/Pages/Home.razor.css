@@ -38,7 +38,8 @@
 }
 
 .data-card {
-    background-color: #f8fafc;
+    background-color: #f4f4f4;
+    /* background-image: linear-gradient(130deg, rgb(212, 225, 248) 0%, #c1c1d8 70%); */
     border-radius: 8px;
     padding: 1rem;
     display: flex;
@@ -46,17 +47,59 @@
     gap: 0.5rem;
 }
 
+/* Data-Card CSS changing based on nature classification */
+/* .data-card.td {
+    background-image: linear-gradient(130deg, #ffd966 0%, #3a0647 100%);
+    color: #4a2e6e;
+}
+
+.data-card.depr {
+    background-image: linear-gradient(130deg, #ff9999 0%, #3a0647 100%);
+    color: #6d1e32;
+}
+
+.data-card.ts {
+    background-image: linear-gradient(130deg, #99ccff 0%, #3a0647 100%);
+    color: #1a3c5d;
+}
+
+.data-card.s {
+    background-image: linear-gradient(130deg, #66ffb3 0%, #3a0647 100%);
+    color: #265942;
+}
+
+.data-card.tc {
+    background-image: linear-gradient(130deg, #99b3ff 0%, #3a0647 100%);
+    color: #2c3f6e;
+}
+
+.data-card.c {
+    background-image: linear-gradient(130deg, #80e27e 0%, #3a0647 100%);
+    color: #1f4f24;
+} */
+
+
 .data-label {
     color: #64748b;
-    font-size: 0.875rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
+.data-output {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .data-value {
     color: #1e293b;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
+}
+
+.transition {
+    display: flex;
+    align-items: start;
 }
 
 .update-section {
