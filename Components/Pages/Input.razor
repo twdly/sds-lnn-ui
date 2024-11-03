@@ -57,7 +57,7 @@
                 <input @bind="_speed" type="number" placeholder="Enter speed" />
             </div>
 
-            <button type="button" @onclick="SendInput">Submit Data</button>
+            <button type="button" @onclick="SendInput" disabled="@IsSubmitDisabled">Submit Data</button>
 
             @if (!string.IsNullOrEmpty(_response))
             {
@@ -86,6 +86,18 @@
 
     private async void SendInput()
     {
-        _response = await InputService!.SendInput(_month, _day, _hour, _lat, _lon, _wind, _pres, _gust, _eye, _speed);
+        try
+        {
+            _response = await InputService!.SendInput(_month, _day, _hour, _lat, _lon, _wind, _pres, _gust, _eye, _speed);
+        }
+        catch (Exception ex)
+        {
+            _response = $"Error: {ex.Message}. Please ensure all input values are correct and try again.";
+            Console.WriteLine($"An error occurred while sending input data: {ex.Message}");
+        }
     }
+
+    private bool IsSubmitDisabled =>
+        _month == 0 || _day == 0 || _hour == 0 || _lat == 0 || _lon == 0 ||
+        _wind == 0 || _pres == 0 || _gust == 0 || _eye == 0 || _speed == 0;
 }
