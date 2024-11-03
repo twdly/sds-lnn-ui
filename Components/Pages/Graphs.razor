@@ -1,15 +1,23 @@
 @page "/graphs"
 @rendermode InteractiveServer
 
-<label for="countInput">Count:</label>
-<input id="countInput" type="text" @bind="_count">
-<button @onclick="GetData" disabled="@(_count <= 0)">Get Data</button>
-@if (_dataButtonClicked)
-{
-    <Graph GraphInput="_data"/>
-}
-else if (_dataButtonClicked && _data.Count == 0)
-{
-    <p>Data could not be obtained</p>
-}
+<div class="container">
+    <label for="countInput" class="label">Count:</label>
+    <div class="count-card">
+        <input id="countInput" type="text" @bind="_count" class="input-box" />
+        <button @onclick="GetData" disabled="@(_count <= 0)" class="data-button">
+            Get Data
+        </button>
+    </div>
 
+    @if (_dataButtonClicked)
+    {
+        <div class="graph-container">
+            <Graph GraphInput="_data"/>
+        </div>
+    }
+    else if (_dataButtonClicked && _data.Count == 0)
+    {
+        <p class="error-message">Data could not be obtained</p>
+    }
+</div>
