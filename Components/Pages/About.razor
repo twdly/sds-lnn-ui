@@ -5,13 +5,19 @@
 <div>
     <h1 class="header-title">Cyclone Definition</h1>
 
-    <br>
+    <hr>
 
     <p>A cyclone is defined "as a system of winds rotating inwards to an area of low barometric pressure". <br> <br>
+
     In order for cyclones to form, it must be over <strong> sea surface temperatures of 26 degrees Celsius </strong>. The warm water causes
-    the water to evaporate, and form clouds and if there is <strong> low atmospheric pressure </strong>, <br> the clouds are pulled in 
-    and begin to rotate. <br> <br> A cyclone can be categorised by its nature and intensity, where nature refers
-    to its title and intensity to its numerical rating; both mutually inclusive.</p>
+    the water to evaporate, and form clouds and if there is <strong> low atmospheric pressure</strong>, <br> the clouds are pulled in 
+    and begin to rotate. Cyclone are generally known for their <strong> high wind speeds that exceed 63 km/h</strong>, even greater at <strong> its center with 90 km/h</strong>.
+    Surprisingly, cyclones never originate on the equator <br> due to the Coriolis effect where Earth's rotational forces in that area are very weak.
+    And will obviously target various sea basins across the globe such as the Pacific, Indian and Atlantic Oceans.
+    
+    <br> <br> A cyclone can be categorised by its nature and intensity, where nature refers
+    to its title and intensity to its numerical rating; both mutually inclusive. Where the higher the cyclone's sustained wind speed, the higher <br>
+    its nature and intensity:</p>
 
     <table>
         <tr>
@@ -48,13 +54,21 @@
     </table>
 </div>
 
-<br>
+<hr>
 
 <div>
     <h1 class="header-title" style="text-align: right">How the model works</h1>
 
-    <p style="text-align: right">The data is processed and analysed from existing datasets recorded near the premises of Vanuatu. (insert AI mumbo jumbo) <br> <br>
-    A colour-grade system is displayed for users to easily interpret the magnitude of each statistical feature.</p>
+    <hr>
+
+    <p style="text-align: right">The data is taken from existing datasets belonging to the NCEI (National Centers for Environmental Information), 
+    whose project titled the IBTrACS (International Best Track Archive for Climate Stewardship) recorded <br> cyclone data in all ocean basins. Given that Vanuatu is main
+    priority, the West and South Pacific Ocean datasets were the only ones utilised in this model. <br> <br> This cyclone prediction model takes in the relevant readings 
+    which is formatted into both input (mixed data) and validation (correct data) sets, which is then analysed and processed by a neural network to constantly <br> generate
+    results that closely resemble the validation set; further understanding the right parameters of a cyclone. <br> <br>
+
+    A colour-grade system is displayed for users to easily interpret the magnitude of each statistical feature:</p>
+
 </div>
 
 <div class="container">
@@ -62,17 +76,29 @@
         <div class="square" style="background-color: green"></div>
         <label>VERY LOW</label>
     </div>
+    <div class="line-container">
+        <div class="line"></div>
+    </div>
     <div class="square-container">
         <div class="square" style="background-color: greenyellow"></div>
         <label>LOW</label>
+    </div>
+    <div class="line-container">
+        <div class="line"></div>
     </div>
     <div class="square-container">
         <div class="square" style="background-color: yellow"></div>
         <label>MEDIUM</label>
     </div>
+    <div class="line-container">
+        <div class="line"></div>
+    </div>
     <div class="square-container">
         <div class="square" style="background-color: orange"></div>
         <label>HIGH</label>
+    </div>
+    <div class="line-container">
+        <div class="line"></div>
     </div>
     <div class="square-container">
         <div class="square" style="background-color: red"></div>
