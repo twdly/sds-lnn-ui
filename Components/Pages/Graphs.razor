@@ -1,15 +1,30 @@
 @page "/graphs"
 @rendermode InteractiveServer
 
-<label for="countInput">Count:</label>
-<input id="countInput" type="text" @bind="_count">
-<button @onclick="GetData" disabled="@(_count <= 0)">Get Data</button>
-@if (_dataButtonClicked)
-{
-    <Graph GraphInput="_data"/>
-}
-else if (_dataButtonClicked && _data.Count == 0)
-{
-    <p>Data could not be obtained</p>
-}
+<div class="container">
+    <h1>Cyclone Data Visualization</h1>
 
+    <div class="card">
+        <form>
+            <div class="form-group">
+                <label>Count:</label>
+                <input type="number" @bind="_count" placeholder="Enter count value" />
+            </div>
+
+            <button type="button" @onclick="GetData" disabled="@(_count <= 0)">Get Data</button>
+
+            @if (_dataButtonClicked)
+            {
+                <div class="graph-container">
+                    <Graph GraphInput="_data"/>
+                </div>
+            }
+            else if (_dataButtonClicked && _data.Count == 0)
+            {
+                <div class="response">
+                    <p>Data could not be obtained</p>
+                </div>
+            }
+        </form>
+    </div>
+</div>

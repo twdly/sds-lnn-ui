@@ -1,25 +1,3 @@
-:root {
-    --primary-color: #4CAF50;
-    --button-color: #007bff;
-    --button-text-color: white;
-    --button-hover-color: #0056b3;
-    --input-border-color: #ccc;
-    --font-color: #333;
-    --card-background: #ffffff;
-    --background-color: #f8f9fa;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .container {
     width: 600px;
     padding: 20px;
@@ -101,13 +79,31 @@ button:disabled {
 }
 
 button:disabled:hover {
-    background-color: #999; 
+    background-color: #999;
     transform: none;
 }
-
 
 .response {
     margin-top: 15px;
     font-size: 1rem;
     color: var(--font-color);
+}
+
+.graph-container {
+    margin-top: 20px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .graph-container {
+        overflow-x: auto;
+    }
 }

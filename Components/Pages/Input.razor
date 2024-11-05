@@ -84,16 +84,18 @@
 
     [Inject] DataInputService? InputService { get; set; }
 
-    private async void SendInput()
+    private async Task SendInput()
     {
         try
         {
             _response = await InputService!.SendInput(_month, _day, _hour, _lat, _lon, _wind, _pres, _gust, _eye, _speed);
+            StateHasChanged();
         }
         catch (Exception ex)
         {
             _response = $"Error: {ex.Message}. Please ensure all input values are correct and try again.";
             Console.WriteLine($"An error occurred while sending input data: {ex.Message}");
+            StateHasChanged();
         }
     }
 
