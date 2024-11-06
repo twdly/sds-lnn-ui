@@ -58,6 +58,7 @@
             </div>
 
             <button type="button" @onclick="SendInput" disabled="@IsSubmitDisabled">Submit Data</button>
+            <button type="button" @onclick="RandomizeInput">Randomize Data</button>
 
             @if (!string.IsNullOrEmpty(_response))
             {
@@ -99,7 +100,24 @@
         }
     }
 
+    private async Task RandomizeInput()
+    {
+        Random rand = new Random();
+        _month = rand.Next(1, 13);
+        _day = rand.Next(1, 32);
+        _hour = rand.Next(0, 24);
+        _lat = rand.Next(-90, 91);
+        _lon = rand.Next(-180, 181);
+        _wind = rand.Next(0, 200);
+        _pres = rand.Next(0, 2000);
+        _gust = rand.Next(0, 200);
+        _eye = rand.Next(0, 100);
+        _speed = rand.Next(0, 200);
+    }
+
     private bool IsSubmitDisabled =>
         _month == 0 || _day == 0 || _hour == 0 || _lat == 0 || _lon == 0 ||
         _wind == 0 || _pres == 0 || _gust == 0 || _eye == 0 || _speed == 0;
+
+    
 }
