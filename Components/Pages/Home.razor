@@ -91,12 +91,15 @@
         string displayText = Math.Round(_prediction.Nature, 1) switch
         {
             >= 0 and < 0.5 => "Disturbance",
-            >= 0.5 and < 0.9 => "Depression",
+            >= 0.5 and < 0.9 => "Transitioning Disturbance",
             >= 1 and < 1.5 => "Depression",
-            >= 1.5 and < 1.9 => "Storm",
+            >= 1.5 and < 1.9 => "Transitioning Depression",
             >= 2 and < 2.5 => "Storm",
-            >= 2.5 and < 2.9 => "Cyclone",
-            >= 3 => "Cyclone",
+            >= 2.5 and < 2.9 => "Transitioning Storm",
+            >= 3 and < 3.5 => "Cyclone",
+            >= 3.5 and < 3.9 => "Transitioning Cyclone",
+            >= 4 and < 4.9 => "Moderate Cyclone",
+            >= 5 => "Severe Cyclone",
             _ => "Something went wrong"
         };
 
@@ -123,12 +126,15 @@
         return Math.Round(_prediction.Nature, 1) switch
         {
             >= 0 and < 0.5 => "dist",
-            >= 0.5 and < 0.9 => "td",
+            >= 0.5 and < 0.9 => "tdist",
             >= 1 and < 1.5 => "depr",
-            >= 1.5 and < 1.9 => "ts",
+            >= 1.5 and < 1.9 => "tdepr",
             >= 2 and < 2.5 => "s",
-            >= 2.5 and < 2.9 => "tc",
-            >= 3 => "c",
+            >= 2.5 and < 2.9 => "ts",
+            >= 3 and < 3.5 => "c",
+            >= 3.5 and < 3.9 => "tc",
+            >= 4 and < 4.9 => "mc",
+            >= 5 => "sc",
             _ => "Something went wrong"
         };
     }
