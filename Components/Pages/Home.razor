@@ -15,11 +15,17 @@
                 <h2 class="section-title">Current Predictions</h2>
                 <div class="data-grid">
                     <div class="data-card @GetNatureClass()">
-                        <span class="data-label">Nature</span>
+                        <div class="data-output">
+                            <span class="data-label">Nature</span>
+                            <i class="bi bi-search"></i>
+                        </div>
                         <span class="data-value">@GetNatureDisplay()</span>
                     </div>
                     <div class="data-card">
+                    <div class="data-output">
                         <span class="data-label">Intensity</span>
+                        <i class="bi bi-speedometer2"></i>
+                    </div>
                         <span class="data-value">@roundIntensity()%</span>
                     </div>
                 </div>
@@ -36,7 +42,10 @@
                         <span class="data-value">@_prediction.Gust km/h</span>
                     </div>
                     <div class="data-card">
-                        <span class="data-label">Eye</span>
+                        <div class="data-output">
+                            <span class="data-label">Eye</span>
+                            <i class="bi bi-tropical-storm"></i>
+                        </div>
                         <span class="data-value">@_prediction.Eye km</span>
                     </div>
                 </div>
@@ -96,7 +105,7 @@
         if (Math.Round(_prediction.Nature, 1) % 1 != 0)
         {
             builder.OpenElement(1, "i");
-            builder.AddAttribute(2, "class", "bi bi-arrow-up transition");
+            builder.AddAttribute(2, "class", "bi bi-chevron-double-up transition");
             builder.CloseElement();
         }
     };
