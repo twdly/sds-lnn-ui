@@ -8,21 +8,6 @@
     <div class="card">
         <form>
             <div class="form-group">
-                <label>Month:</label>
-                <input @bind="_month" type="number" placeholder="Enter month" />
-            </div>
-
-            <div class="form-group">
-                <label>Day:</label>
-                <input @bind="_day" type="number" placeholder="Enter day" />
-            </div>
-
-            <div class="form-group">
-                <label>Hour:</label>
-                <input @bind="_hour" type="number" placeholder="Enter hour" />
-            </div>
-
-            <div class="form-group">
                 <label>Latitude:</label>
                 <input @bind="_lat" type="number" placeholder="Enter latitude" />
             </div>
@@ -70,9 +55,6 @@
 </div>
 
 @code {
-    float _month;
-    float _day;
-    float _hour;
     float _lat;
     float _lon;
     float _wind;
@@ -86,9 +68,10 @@
 
     private async Task SendInput()
     {
+        var currentTime = DateTime.Now;
         try
         {
-            _response = await InputService!.SendInput(_month, _day, _hour, _lat, _lon, _wind, _pres, _gust, _eye, _speed);
+            _response = await InputService!.SendInput(currentTime.Month, currentTime.Day, currentTime.Hour, _lat, _lon, _wind, _pres, _gust, _eye, _speed);
             StateHasChanged();
         }
         catch (Exception ex)
@@ -100,6 +83,5 @@
     }
 
     private bool IsSubmitDisabled =>
-        _month == 0 || _day == 0 || _hour == 0 || _lat == 0 || _lon == 0 ||
-        _wind == 0 || _pres == 0 || _gust == 0 || _eye == 0 || _speed == 0;
+        _lat == 0 || _lon == 0 || _wind == 0 || _pres == 0 || _gust == 0 || _eye == 0 || _speed == 0;
 }
