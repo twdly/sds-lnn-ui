@@ -86,29 +86,33 @@
         _lastUpdated = DateTime.Now;
     }
 
-    private RenderFragment GetNatureDisplay() => builder =>
+private RenderFragment GetNatureDisplay() => builder =>
+{
+    double roundedNature = Math.Round(_prediction.Nature, 1);
+    string displayText = roundedNature switch
     {
-        string displayText = Math.Round(_prediction.Nature, 1) switch
-        {
-            >= 0 and < 0.5 => "Disturbance",
-            >= 0.5 and < 0.9 => "Depression",
-            >= 1 and < 1.5 => "Depression",
-            >= 1.5 and < 1.9 => "Storm",
-            >= 2 and < 2.5 => "Storm",
-            >= 2.5 and < 2.9 => "Cyclone",
-            >= 3 => "Cyclone",
-            _ => "Something went wrong"
-        };
-
-        builder.AddContent(0, displayText);
-
-        if (Math.Round(_prediction.Nature, 1) % 1 != 0)
-        {
-            builder.OpenElement(1, "i");
-            builder.AddAttribute(2, "class", "bi bi-chevron-double-up transition");
-            builder.CloseElement();
-        }
+        >= 0 and < 0.5 => "Disturbance",
+        >= 0.5 and < 0.9 => "Depression",
+        >= 1 and < 1.5 => "Depression",
+        >= 1.5 and < 1.9 => "Storm",
+        >= 2 and < 2.5 => "Storm",
+        >= 2.5 and < 2.9 => "Cyclone",
+        >= 3 => "Cyclone",
+        _ => "Something went wrong"
     };
+
+    builder.AddContent(0, displayText);
+
+    if ((roundedNature >= 0.5 && roundedNature < 0.9) || 
+        (roundedNature >= 1.5 && roundedNature < 1.9) || 
+        (roundedNature >= 2.5 && roundedNature < 2.9))
+    {
+        builder.OpenElement(1, "i");
+        builder.AddAttribute(2, "class", "bi bi-chevron-double-up transition");
+        builder.CloseElement();
+    }
+};
+
 
     private double roundIntensity() 
     {
