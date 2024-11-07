@@ -5,6 +5,40 @@
     padding: 1rem;
 }
 
+.current-predictions {
+    margin-bottom: 2rem;
+}
+
+.current-prediction-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.left-part {
+    grid-column: 1;
+}
+
+.right-part {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 0.5rem;
+}
+
+.intensity-card {
+    grid-column: 1;
+}
+
+.label-card {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+    font-weight: bold;
+}
+
 .main-title {
     color: #1a365d;
     font-size: 2.5rem;

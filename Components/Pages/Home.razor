@@ -11,22 +11,33 @@
     @if (_prediction is { Nature: not 0 })
     {
         <div class="prediction-container">
-            <div class="prediction-section">
+            <div class="prediction-section current-predictions">
                 <h2 class="section-title">Current Predictions</h2>
-                <div class="data-grid">
-                    <div class="data-card @GetNatureClass()">
-                        <div class="data-output">
-                            <span class="data-label">Nature</span>
-                            <i class="bi bi-search"></i>
+                <div class="current-prediction-grid">
+                    
+                    <div class="left-part">
+                        <div class="data-card @GetNatureClass()">
+                            <div class="data-output">
+                                <span class="data-label">Nature</span>
+                                <i class="bi bi-search"></i>
+                            </div>
+                            <span class="data-value">@GetNatureDisplay()</span>
                         </div>
-                        <span class="data-value">@GetNatureDisplay()</span>
                     </div>
-                    <div class="data-card">
-                    <div class="data-output">
-                        <span class="data-label">Intensity</span>
-                        <i class="bi bi-speedometer2"></i>
-                    </div>
-                        <span class="data-value">@roundIntensity()</span>
+
+                    <div class="right-part">
+                        <div class="data-card intensity-card">
+                            <div class="data-output">
+                                <span class="data-label">Intensity</span>
+                                <i class="bi bi-speedometer2"></i>
+                            </div>
+                            <span class="data-value">@roundIntensity()</span>
+                        </div>
+                        <div class="data-card label-card">
+                            <div class="data-output">
+                                <span class="data-value">5</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
