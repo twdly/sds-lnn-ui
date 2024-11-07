@@ -64,7 +64,7 @@ input {
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
-    background-color: #f8f9fa;
+    background-color: #D3D3D3;
 }
 
 input::placeholder {
@@ -74,22 +74,35 @@ input::placeholder {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff; /* Same blue color */
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 8px; /* Smooth rounded corners */
+    border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    font-weight: 500; /* Slightly bold for clarity */
-    transition: background-color 0.3s, transform 0.1s; /* Smooth hover effect */
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.1s;
     margin-top: 20px;
     text-align: center;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.05); /* Slight zoom effect on hover */
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+button:disabled:hover {
+    background-color: #999; 
+    transform: none;
 }
 
 
