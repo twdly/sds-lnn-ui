@@ -26,17 +26,18 @@
                     </div>
 
                     <div class="right-part">
-                        <div class="data-card intensity-card">
+                        <div class="data-card @GetNatureClass()">
                             <div class="data-output">
-                                <span class="data-label">Intensity</span>
+                                <span class="data-label">Intensity Rating</span>
                                 <i class="bi bi-speedometer2"></i>
                             </div>
-                            <span class="data-value">@roundIntensity()</span>
+                            <span class="data-value">@roundIntensityRating()</span>
                         </div>
-                        <div class="data-card label-card">
+                        <div class="data-card @GetNatureClass()">
                             <div class="data-output">
-                                <span class="data-value">5</span>
+                                <span class="data-label">Intensity Category</span>
                             </div>
+                            <span class="data-value">@roundIntensityCategory()</span>
                         </div>
                     </div>
                 </div>
@@ -57,7 +58,7 @@
                             <span class="data-label">Eye</span>
                             <i class="bi bi-tropical-storm"></i>
                         </div>
-                        <span class="data-value">@_prediction.Eye km</span>
+                        <span class="data-value">@_prediction.Eye NM</span>
                     </div>
                 </div>
             </div>
@@ -130,13 +131,15 @@
 };
 
 
-    private double roundIntensity() 
+    private double roundIntensityRating() 
     {
         return Math.Round(_prediction.Intensity, 1);
     }
 
-
-
+    private int roundIntensityCategory()
+    {
+        return (int)(_prediction.Intensity);
+    }
 
     private string GetNatureClass()
     {
