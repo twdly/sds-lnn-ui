@@ -134,43 +134,43 @@
 
 
 /* Data-Card CSS changing based on nature classification */
-.data-card.tdist {
+.data-card.tdist, .combined-data-card.tdist {
     background-color: yellowgreen;
 }
 
-.data-card.dist {
+.data-card.dist, .combined-data-card.dist {
     background-color: green;
 }
 
-.data-card.tdepr {
+.data-card.tdepr, .combined-data-card.tdepr {
     background-color: yellow; 
 }
 
-.data-card.depr {
+.data-card.depr, .combined-data-card.depr {
     background-color: yellowgreen;
 }
 
-.data-card.ts {
+.data-card.ts, .combined-data-card.ts {
     background-color: orange;
 }
 
-.data-card.s {
+.data-card.s, .combined-data-card.s {
     background-color: yellow;
 }
 
-.data-card.tc {
+.data-card.tc, .combined-data-card.tc {
     background-color: orangered;
 }
 
-.data-card.c {
+.data-card.c, .combined-data-card.c {
     background-color: orange;
 }
 
-.data-card.mc {
+.data-card.mc, .combined-data-card.mc {
     background-color: orangered;
 }
 
-.data-card.sc {
+.data-card.sc, .combined-data-card.sc {
     background-color: red;
 }
 
