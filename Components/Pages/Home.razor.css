@@ -21,13 +21,59 @@
 
 .right-part {
     grid-column: 2;
-    display: grid;
-    grid-template-columns: 4fr 1fr;
+    display: flex;
+    gap: 0;
+}
+
+.combined-data-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #d9d8d8;
+    border-radius: 8px;
+    height: 100%;
+    gap: 0;
+}
+
+.intensity-side, .category-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+}
+
+.divider {
+    width: 2px;
+    height: 90%;
+    background-color: #000000;
+    margin: 0;
+    align-self: center;
+}
+
+.intensity-category {
+    display: flex;
+    flex-direction: column;
     gap: 0.5rem;
 }
 
-.intensity-card {
-    grid-column: 1;
+.data-label {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.data-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.intensity-category {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .label-card {

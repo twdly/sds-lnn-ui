@@ -26,18 +26,23 @@
                     </div>
 
                     <div class="right-part">
-                        <div class="data-card @GetNatureClass()">
-                            <div class="data-output">
-                                <span class="data-label">Intensity Rating</span>
-                                <i class="bi bi-speedometer2"></i>
+                        <div class="combined-data-card @GetNatureClass()">
+                            <div class="intensity-side">
+                                <div class="data-output">
+                                    <span class="data-label">Intensity Rating</span>
+                                    <i class="bi bi-speedometer2"></i>
+                                </div>
+                                <span class="data-value">@roundIntensityRating()</span>
                             </div>
-                            <span class="data-value">@roundIntensityRating()</span>
-                        </div>
-                        <div class="data-card @GetNatureClass()">
-                            <div class="data-output">
-                                <span class="data-label">Intensity Category</span>
+                            
+                            <div class="divider"></div>
+                            
+                            <div class="category-side">
+                                <div class="intensity-category">
+                                    <span class="data-label">Intensity Category</span>
+                                    <span class="data-value">@roundIntensityCategory()</span>
+                                </div>
                             </div>
-                            <span class="data-value">@roundIntensityCategory()</span>
                         </div>
                     </div>
                 </div>
