@@ -1,7 +1,7 @@
 @using lnn_ui.Models
 @using ApexCharts
 <div style="max-width: 1000px">
-    <ApexChart Title="Weather Data" TItem="LnnOutput">
+    <ApexChart Title="Weather Data" TItem="LnnOutput" Options="Options">
         <ApexPointSeries TItem="LnnOutput"
                          Items="GraphInput"
                          SeriesType="SeriesType.Line"
@@ -70,4 +70,18 @@
 
 @code {
     [Parameter] public List<LnnOutput> GraphInput { get; set; } = [];
+    private ApexChartOptions<LnnOutput> Options { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        Options.Yaxis =
+        [
+            new YAxis
+            {
+                Title = new AxisTitle { Text = "Magnitude" },
+                DecimalsInFloat = 0
+            }
+        ];
+    }
+
 }
